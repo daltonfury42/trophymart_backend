@@ -2,7 +2,7 @@ import math
 
 class Config:
     SHAPES = {
-        'cylender': {
+        'cylinder': {
             'params': ['height', 'radius'],
             'volume_func': lambda h, r: math.pi * r * r * h,
             'area_func': lambda h, r: 2 * math.pi * r * (r + h)
