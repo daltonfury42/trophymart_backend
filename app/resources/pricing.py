@@ -26,11 +26,11 @@ def get_pricing():
         raise InvalidUsage(Errors.INVALID_PARAM, {'error_input': ex.args[0]})
 
     try:
-        param_values = [float(data[param]) for param in shape['params']]
+        dimension_values = [float(data['dimensions'][dimension]) for dimension in shape['dimensions']]
     except KeyError as ex:
-        raise InvalidUsage(Errors.PARAM_NOT_FOUND, {'error_param': ex.args[0]})
+        raise InvalidUsage(Errors.PARAM_NOT_FOUND, {'error_dimension': ex.args[0]})
 
-    price = pricingService.get_price(shape, material, coating_material, param_values)
+    price = pricingService.get_price(shape, material, coating_material, dimension_values)
 
     data['price'] = price
 
