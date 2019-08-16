@@ -11,7 +11,7 @@ def create_app(environment='development'):
     # from views import ....
     # app.register_blueprint()
 
-    # from resources import ....
-    # app.register_blueprint()
+    from .resources import pricing
+    app.register_blueprint(pricing.pricing)
 
     return app

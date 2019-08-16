@@ -1,5 +1,14 @@
+import math
+
 class Config:
     APP_KEY = 'Something secret'
+
+    SHAPES = {
+        'cylender': {
+            'params': ['height', 'radius'],
+            'volume_func': lambda h, r: math.pi * r * r * h
+        }
+    }
 
 
 class DevConfig(Config):
