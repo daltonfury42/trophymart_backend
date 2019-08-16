@@ -1,27 +1,4 @@
-from app.utils.errors import Errors, InvalidUsage
-
-
-def get_price(data, config):
-
-    try:
-        shape_name = data['shape']
-        material_name = data['material']
-        coating_name = data['coating']
-    except KeyError as ex:
-        raise InvalidUsage(Errors.PARAM_NOT_FOUND, {'error_param': ex.args[0]})
-
-    try:
-        shape = config.get('SHAPES')[shape_name]
-        material = config.get('MATERIALS')[material_name]
-        coating_material = config.get('COATINGS')[coating_name]
-    except KeyError as ex:
-        raise InvalidUsage(Errors.INVALID_PARAM, {'error_input': ex.args[0]})
-
-    try:
-        param_values = [float(data[param]) for param in shape['params']]
-    except KeyError as ex:
-        raise InvalidUsage(Errors.PARAM_NOT_FOUND, {'error_param': ex.args[0]})
-
+def get_price(shape, material, coating_material, param_values):
     volume = shape['volume_func'](*param_values)
     area = shape['volume_func'](*param_values)
 
@@ -34,7 +11,5 @@ def get_price(data, config):
         'total'     : material_price + coating_price
     }
 
-    data['price'] = price
-
-    return data
+    return price
 
