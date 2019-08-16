@@ -1,6 +1,6 @@
 from flask import Blueprint, request, current_app, jsonify
 
-from app.utils import pricingService
+from app.services import pricingService
 from app.utils.errors import InvalidUsage
 
 pricing = Blueprint('pricing', __name__, url_prefix='/pricing')

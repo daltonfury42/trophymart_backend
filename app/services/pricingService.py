@@ -1,4 +1,4 @@
-from .errors import Errors, InvalidUsage
+from app.utils.errors import Errors, InvalidUsage
 
 
 def get_price(data, config):
