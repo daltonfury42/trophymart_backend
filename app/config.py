@@ -4,8 +4,18 @@ class Config:
     SHAPES = {
         'cylinder': {
             'params': ['height', 'radius'],
-            'volume_func': lambda h, r: math.pi * r * r * h,
-            'area_func': lambda h, r: 2 * math.pi * r * (r + h)
+            'volume_func': lambda h, r: math.pi*r*r*h,
+            'area_func': lambda h, r: 2 * math.pi*r*(r + h)
+        },
+        'cone': {
+            'params': ['height', 'radius'],
+            'volume_func': lambda h, r: math.pi*r*r*h / 3,
+            'area_func': lambda h, r: math.pi*r*(r + math.sqrt(h*h + r*r))
+        },
+        'cuboid': {
+            'params': ['length', 'breadth', 'height'],
+            'volume_func': lambda l, b, h: l*b*h,
+            'area_func': lambda l, b, h: 2 * (l*b + b*h + l*h)
         }
     }
 
