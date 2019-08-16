@@ -1,15 +1,34 @@
 import math
 
 class Config:
-    APP_KEY = 'Something secret'
-
     SHAPES = {
         'cylender': {
             'params': ['height', 'radius'],
-            'volume_func': lambda h, r: math.pi * r * r * h
+            'volume_func': lambda h, r: math.pi * r * r * h,
+            'area_func': lambda h, r: 2 * math.pi * r * (r + h)
         }
     }
 
+    MATERIALS = {
+        'iron': {
+            'price': 2
+        },
+        'steel': {
+            'price': 1
+        }
+    }
+
+    COATINGS = {
+        'gold': {
+            'price': 1000
+        },
+        'silver': {
+            'price': 100
+        },
+        'copper': {
+            'price': 10
+        }
+    }
 
 class DevConfig(Config):
     pass
